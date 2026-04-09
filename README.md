@@ -65,15 +65,15 @@ GitHub Secrets used:
 * DOCKER_PASSWORD
 
 ## 📸 Screenshots
+🌍 Live Application
+![App](images/app.png)
 
-### 🌍 Live Application
-![App](https://github.com/username/repo/raw/main/app.png)
+⚙️ CI/CD Pipeline
+![CI/CD](images/cicd.png)
 
-### ⚙️ CI/CD Pipeline
-![CI/CD](https://github.com/username/repo/raw/main/cicd.png)
+☁️ EC2 Instance
+![EC2](images/ec2.png)
 
-### ☁️ EC2 Instance
-![EC2](https://github.com/username/repo/raw/main/ec2.png)
 
 ## 📈 Future Improvements
 
