@@ -1,62 +1,64 @@
-# 🚀 Flask CI/CD Deployment on AWS EC2
+# Flask CI/CD Deployment on AWS EC2
 
-A production-style DevOps project demonstrating end-to-end deployment of 
-a Dockerized Flask application using GitHub Actions and AWS EC2.
+End-to-end deployment of a containerized Flask application using an automated CI/CD pipeline. Every commit triggers a build, pushes a Docker image, and deploys it to a live AWS EC2 instance.
 
-## 🌍 Live Demo
+## Live Application
 
 http://54.227.96.95:5000
 
-## ⚙️ Tech Stack
+## Technology Stack
 
-* Python (Flask)
+* Flask (Python)
 * Docker
 * AWS EC2 (Amazon Linux)
-* GitHub Actions (CI/CD)
-* Linux (SSH, server management)
+* GitHub Actions
+* Linux (SSH)
 
-## 📌 Features
+## Key Features
 
-* Dockerized Flask application
-* Automated CI/CD pipeline using GitHub Actions
-* Auto deployment to AWS EC2 on every push
-* Publicly accessible live application
+* Containerized Flask application
+* Automated CI/CD pipeline on every push
+* Zero-manual deployment to EC2
+* Publicly accessible live endpoint
 * Secure SSH-based deployment
 
-## 🏗️ Architecture
+## Architecture
 
-GitHub → GitHub Actions → Docker Hub → AWS EC2 → Live Application
+GitHub → GitHub Actions → Docker Hub → AWS EC2 → Running Container
 
+## CI/CD Workflow
 
-## 🔄 CI/CD Workflow
-
-1. Code pushed to GitHub
+1. Push code to main branch
 2. GitHub Actions builds Docker image
 3. Image pushed to Docker Hub
 4. EC2 pulls latest image
-5. Old container stopped and removed
-6. New container deployed automatically
+5. Existing container stopped and removed
+6. New container deployed
 
-## 🐳 Docker Setup
+## Docker Commands
 
-# Build image
-docker build -t your-docker-username/flask-app .
+Build image:
 
-# Run container
-docker run -d -p 5000:5000 your-docker-username/flask-app
+```bash
+docker build -t brindanaik2708/flask-app .
+```
 
-## ☁️ AWS EC2 Setup
+Run container:
 
-* Instance Type: t2.micro / t3.micro (Free Tier)
+```bash
+docker run -d -p 5000:5000 brindanaik2708/flask-app
+```
+
+## AWS EC2 Configuration
+
+* Instance: t3.micro (Free Tier)
 * OS: Amazon Linux 2023
-* Ports Open:
+* Ports:
 
   * 22 (SSH)
-  * 5000 (Application)
+  * 5000 (App)
 
-## 🔐 Environment & Secrets
-
-GitHub Secrets used:
+## Environment Variables
 
 * EC2_HOST
 * EC2_USER
@@ -64,26 +66,24 @@ GitHub Secrets used:
 * DOCKER_USERNAME
 * DOCKER_PASSWORD
 
-## 📸 Screenshots
-🌍 Live Application
+## Screenshots
+
+Live Application
 ![App](images/app.png)
 
-⚙️ CI/CD Pipeline
+CI/CD Pipeline
 ![CI/CD](images/cicd.png)
 
-☁️ EC2 Instance
+EC2 Instance
 ![EC2](images/ec2.png)
 
+## Future Improvements
 
-## 📈 Future Improvements
+* Custom domain with HTTPS
+* Nginx reverse proxy
+* Monitoring & logging
+* Kubernetes deployment
 
-* Add custom domain & HTTPS
-* Use Nginx as reverse proxy
-* Add monitoring & logging
-* Deploy using Kubernetes
-
-## 👨‍💻 Author
+## Author
 
 Brinda Naik
-
-## ⭐ If you found this useful, consider giving it a star!
