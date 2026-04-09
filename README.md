@@ -69,13 +69,13 @@ docker run -d -p 5000:5000 brindanaik2708/flask-app
 ## Screenshots
 
 Live Application
-![App](images/app.png)
+![App](images/app.PNG)
 
 CI/CD Pipeline
-![CI/CD](images/cicd.png)
+![CI/CD](images/cicd.PNG)
 
 EC2 Instance
-![EC2](images/ec2.png)
+![EC2](images/ec2.PNG)
 
 ## Future Improvements
 
