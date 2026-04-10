@@ -2,6 +2,166 @@
 
 ## Overview
 
+This project implements a production-style CI/CD pipeline for a containerized Flask application. It automates the entire lifecycle from code commit to deployment, ensuring consistent, reliable, and repeatable releases.
+
+The system integrates Docker for containerization, GitHub Actions for automation, AWS EC2 for deployment, and Nginx as a reverse proxy to simulate a real-world DevOps environment.
+
+---
+
+## Live Application
+
+http://54.227.96.95
+
+---
+
+## Architecture
+
+GitHub → GitHub Actions → Docker Hub → AWS EC2 → Nginx → Flask Container
+
+---
+
+## Technology Stack
+
+* Flask (Python)
+* Docker
+* GitHub Actions (CI/CD)
+* AWS EC2 (Amazon Linux 2023)
+* Nginx (Reverse Proxy)
+* Linux (SSH)
+
+---
+
+## CI/CD Pipeline
+
+The pipeline is triggered automatically on every push:
+
+1. Source code is pushed to GitHub
+2. GitHub Actions builds a Docker image
+3. Image is pushed to Docker Hub
+4. EC2 instance pulls the latest image
+5. Existing container is stopped and removed
+6. Updated container is deployed automatically
+
+This eliminates manual deployment steps and ensures consistent delivery.
+
+---
+
+## Reverse Proxy (Nginx)
+
+Nginx is configured to forward HTTP traffic from port 80 to the Flask application running inside a Docker container on port 5000.
+
+This enables clean access without specifying a port and reflects real-world deployment practices.
+
+**Flow:**
+User → Nginx (80) → Docker Container (5000)
+
+---
+
+## Docker Setup
+
+Build image:
+
+```
+docker build -t brindanaik2708/flask-app .
+```
+
+Run container:
+
+```
+docker run -d -p 5000:5000 brindanaik2708/flask-app
+```
+
+---
+
+## AWS Deployment
+
+* Instance Type: t3.micro
+* OS: Amazon Linux 2023
+* Open Ports:
+
+  * 22 (SSH)
+  * 80 (HTTP)
+
+Deployment is fully automated via CI/CD with no manual intervention required.
+
+---
+
+## Project Structure
+
+```
+cicd-docker-project/
+│── app.py
+│── requirements.txt
+│── Dockerfile
+│── .github/workflows/
+│   └── ci-cd.yml
+│── images/
+```
+
+---
+
+## Screenshots
+
+* [Live Application](images/app.PNG)
+* [CI/CD Pipeline](images/cicd.PNG)
+* [EC2 Instance](images/ec2.PNG)
+
+---
+
+## Key Highlights
+
+* Automated end-to-end CI/CD pipeline
+* Containerized application deployment
+* Cloud-hosted infrastructure on AWS
+* Reverse proxy implementation using Nginx
+* Zero-manual deployment workflow
+
+---
+
+## Future Improvements
+
+* HTTPS with custom domain
+* Monitoring and logging integration
+* Load balancing with Nginx
+* Kubernetes-based deployment
+
+---
+
+## Repository
+
+https://github.com/brindanaik2708/cicd-docker-project
+
+---
+
+## Author
+
+Brinda Naik
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# End-to-End CI/CD Pipeline with Docker, GitHub Actions & AWS EC2
+
+## Overview
+
 This project demonstrates the design and implementation of a production-style CI/CD pipeline for a Flask-based web application. The pipeline automates the entire workflow from code integration to deployment, ensuring consistent and reliable delivery.
 
 The application is containerized using Docker, automated using GitHub Actions, and deployed on an AWS EC2 instance. Nginx is configured as a reverse proxy to expose the application on a standard HTTP port, simulating real-world deployment architecture.
